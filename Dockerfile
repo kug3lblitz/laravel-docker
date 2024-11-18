@@ -1,34 +1,29 @@
 # Use the official PHP image as a base image
-FROM php:7.4.3-fpm
+FROM php:8.3-fpm-alpine
 
 # Set working directory
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
+RUN apk update && apk add --no-cache \
     curl \
     libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    locales \
+    libjpeg-turbo-dev \
+    freetype-dev \
     zip \
     unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd \
     && docker-php-ext-install pdo_mysql
 
-# Clear cache
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Copy Composer from the official Composer image
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 # Add user for laravel application
-RUN groupadd -g 1000 www
-RUN useradd -u 1000 -ms /bin/bash -g www www
+RUN addgroup -g 1000 www && adduser -u 1000 -G www -s /bin/sh -D www
 
 # Copy existing application directory contents
-COPY . /var/www
+COPY . /var/www/html
 
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www

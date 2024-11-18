@@ -5,6 +5,7 @@ this is pretty much going to enable shortcuts. You can see the definitions in th
 
 Ex.
 docker exec -it <container name> bash #enters shell of container
+side note - current version uses alpine, the default shell of which is 'ash', rather than bash.
 
 once we're in the shell, run ``` composer create-project laravel/laravel . ```
 

@@ -1,6 +1,6 @@
 services:
   app:
-    image: php:7.4.3-fpm
+    build: .
     container_name: app
     working_dir: /var/www/html
     volumes:

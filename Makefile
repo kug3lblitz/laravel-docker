@@ -7,7 +7,7 @@ build:
 	docker-compose build --no-cache --force-rm
 
 shell:
-	docker exec -it app bash
+	docker exec -it app ash
 
 stop:
 	docker-compose stop
