@@ -18,3 +18,15 @@ now, start the container/build them, and enter the shell of the laravel containe
 once we're in the shell, run ``` composer create-project laravel/laravel . ```
 To serve the thing, cd into the laravel directory, and run ```php artisan serve --host=0.0.0.0 --port=8000```
 The site should now be accessible at localhost:8000, per the mapping in docker-compose.yml
+
+Finally, in the laravel .env file, make sure this is what you've got for the db section:
+```
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+
+Verify using ```docker network ls``` if you are having issues
