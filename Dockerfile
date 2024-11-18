@@ -12,6 +12,8 @@ RUN apk update && apk add --no-cache \
     freetype-dev \
     zip \
     unzip \
+    nodejs \
+    npm \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd \
     && docker-php-ext-install pdo_mysql
