@@ -1,5 +1,8 @@
 # updated docker environment for laravel development
 
+Dockerized laravel development environment. Took a while to get it right, but just spin it up and follow the steps
+in this readme, and everything should work just fine.
+
 ## makefile
 this is pretty much going to enable shortcuts. You can see the definitions in there. For 'up', you'd run ```make up```
 
