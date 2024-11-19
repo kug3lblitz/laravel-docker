@@ -30,3 +30,6 @@ DB_PASSWORD=root
 ```
 
 Verify using ```docker network ls``` if you are having issues
+
+If you need to import an sql dump, you can do so easily from the container shell like so:
+``` mysql -h db -u root -p laravel < file.sql```
