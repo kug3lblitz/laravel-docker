@@ -14,6 +14,7 @@ RUN apk update && apk add --no-cache \
     unzip \
     nodejs \
     npm \
+    mysql-client \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd \
     && docker-php-ext-install pdo_mysql
