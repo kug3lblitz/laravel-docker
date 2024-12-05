@@ -33,4 +33,5 @@ Verify using ```docker network ls``` if you are having issues
 
 If you need to import an sql dump, you can do so easily from the container shell like so:
 ``` mysql -h db -u root -p laravel < file.sql```
+
 If you have multiple containers or docker instances, sub ```db``` for the appropriate service name specified in docker-compose.
